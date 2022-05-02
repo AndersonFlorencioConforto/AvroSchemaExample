@@ -1,0 +1,26 @@
+server:
+  port: 8083
+kafka:
+  topic: topic-user
+spring:
+  application:
+    name: ms-consumer-user
+  kafka:
+    properties:
+      bootstrap-servers: localhost:9092
+      schema:
+        registry:
+          url: http://127.0.0.1:8081
+    consumer:
+      group-id: group-1
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      properties:
+        specific.avro.reader: true
+
+
+
+
+
+
